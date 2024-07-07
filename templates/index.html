@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+                <h1 class="font-weight-bold">Restaurant Booking System</h1>
+                <p class="lead">Book your seats now and enjoy a great dining experience!</p>
+                <!-- {% if not request.user.is_authenticated %}
+                    <a href="{% url 'signup' %}" class="btn btn-success">Sign up</a>
+                    <a href="{% url 'login_view' %}" class="btn btn-info">Login</a>
+                {% endif %} -->
+                {% if request.user.is_authenticated %}
+                <p><b>Welcome, {{ request.user.username }}</b></p>
+                {% else %}
+                <p>You are not logged in.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</header>
