@@ -59,4 +59,26 @@
     <meta http-equiv="refresh" content="0; url=/admin/">
     {% endif %}
 </head>
+<body>
+    <header class="nav-bar">
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'table_list' %}">Tables</a></li>
+                <li><a href="{% url 'menu_list' %}">Menu</a></li>
+                {% if request.user.is_authenticated %}    
+                    <li><a href="{% url 'booking_create' %}">Create Booking</a></li>
+                    <li><a href="{% url 'booking_list' %}">My Bookings</a></li>
+                    <li><a href="{% url 'logout_view' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'signup' %}">Sign up</a></li>
+                    <li><a href="{% url 'login_view' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+</body>
 </html>
