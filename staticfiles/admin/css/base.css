@@ -1,6 +1,4 @@
-/*
-    DJANGO Admin styles
-*/
+/*  DJANGO Admin styles */
 
 /* VARIABLE DEFINITIONS */
 html[data-theme="light"],
@@ -89,7 +87,6 @@ html[data-theme="light"],
         "Segoe UI Symbol",
         "Noto Color Emoji";
 }
-
 
 html,
 body {
@@ -271,4 +268,60 @@ hr {
     margin: 0;
     padding: 0;
     line-height: 1px;
+}
+
+/* TEXT STYLES & MODIFIERS */
+
+.small {
+    font-size: 0.6875rem;
+}
+
+.mini {
+    font-size: 0.625rem;
+}
+
+.help,
+p.help,
+form p.help,
+div.help,
+form div.help,
+div.help li {
+    font-size: 0.6875rem;
+    color: var(--body-quiet-color);
+}
+
+div.help ul {
+    margin-bottom: 0;
+}
+
+.help-tooltip {
+    cursor: help;
+}
+
+p img,
+h1 img,
+h2 img,
+h3 img,
+h4 img,
+td img {
+    vertical-align: middle;
+}
+
+.quiet,
+a.quiet:link,
+a.quiet:visited {
+    color: var(--body-quiet-color);
+    font-weight: normal;
+}
+
+.clear {
+    clear: both;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.hidden {
+    display: none !important;
 }
