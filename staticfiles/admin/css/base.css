@@ -829,3 +829,62 @@ a.deletelink:hover {
     /* XXX Probably unused? */
     text-decoration: none;
 }
+
+/* OBJECT TOOLS */
+
+.object-tools {
+    font-size: 0.625rem;
+    font-weight: bold;
+    padding-left: 0;
+    float: right;
+    position: relative;
+    margin-top: -48px;
+}
+
+.object-tools li {
+    display: block;
+    float: left;
+    margin-left: 5px;
+    height: 1rem;
+}
+
+.object-tools a {
+    border-radius: 15px;
+}
+
+.object-tools a:link,
+.object-tools a:visited {
+    display: block;
+    float: left;
+    padding: 3px 12px;
+    background: var(--object-tools-bg);
+    color: var(--object-tools-fg);
+    font-weight: 400;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.object-tools a:focus,
+.object-tools a:hover {
+    background-color: var(--object-tools-hover-bg);
+}
+
+.object-tools a:focus {
+    text-decoration: none;
+}
+
+.object-tools a.viewsitelink,
+.object-tools a.addlink {
+    background-repeat: no-repeat;
+    background-position: right 7px center;
+    padding-right: 26px;
+}
+
+.object-tools a.viewsitelink {
+    background-image: url(../img/tooltag-arrowright.svg);
+}
+
+.object-tools a.addlink {
+    background-image: url(../img/tooltag-add.svg);
+}
