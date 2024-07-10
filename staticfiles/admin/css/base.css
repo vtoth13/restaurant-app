@@ -773,3 +773,22 @@ td ul.errorlist+textarea {
     font-size: 0.75rem;
     padding: 5px 0 0 12px;
 }
+
+/* BREADCRUMBS */
+
+div.breadcrumbs {
+    background: var(--breadcrumbs-bg);
+    padding: 10px 40px;
+    border: none;
+    color: var(--breadcrumbs-fg);
+    text-align: left;
+}
+
+div.breadcrumbs a {
+    color: var(--breadcrumbs-link-fg);
+}
+
+div.breadcrumbs a:focus,
+div.breadcrumbs a:hover {
+    color: var(--breadcrumbs-fg);
+}
