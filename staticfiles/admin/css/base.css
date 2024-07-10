@@ -888,3 +888,20 @@ a.deletelink:hover {
 .object-tools a.addlink {
     background-image: url(../img/tooltag-add.svg);
 }
+
+/* OBJECT HISTORY */
+
+#change-history table {
+    width: 100%;
+}
+
+#change-history table tbody th {
+    width: 16em;
+}
+
+#change-history .paginator {
+    color: var(--body-quiet-color);
+    border-bottom: 1px solid var(--hairline-color);
+    background: var(--body-bg);
+    overflow: hidden;
+}
