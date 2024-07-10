@@ -619,3 +619,57 @@ input[type=submit][disabled].default,
 input[type=button][disabled].default {
     opacity: 0.4;
 }
+
+/* MODULES */
+
+.module {
+    border: none;
+    margin-bottom: 30px;
+    background: var(--body-bg);
+}
+
+.module p,
+.module ul,
+.module h3,
+.module h4,
+.module dl,
+.module pre {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.module blockquote {
+    margin-left: 12px;
+}
+
+.module ul,
+.module ol {
+    margin-left: 1.5em;
+}
+
+.module h3 {
+    margin-top: .6em;
+}
+
+.module h2,
+.module caption,
+.inline-group h2 {
+    margin: 0;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    text-align: left;
+    background: var(--primary);
+    color: var(--header-link-color);
+}
+
+.module caption,
+.inline-group h2 {
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.module table {
+    border-collapse: collapse;
+}
