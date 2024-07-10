@@ -970,3 +970,27 @@ a.deletelink:hover {
     clear: both;
     padding: 10px;
 }
+
+/* COLUMN TYPES */
+
+.colMS {
+    margin-right: 300px;
+}
+
+.colSM {
+    margin-left: 300px;
+}
+
+.colSM #content-related {
+    float: left;
+    margin-right: 0;
+    margin-left: -300px;
+}
+
+.colSM #content-main {
+    float: right;
+}
+
+.popup .colM {
+    width: auto;
+}
