@@ -1,0 +1,55 @@
+/* CHANGELISTS */
+
+#changelist {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+#changelist .changelist-form-container {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+#changelist table {
+    width: 100%;
+}
+
+.change-list .hiddenfields {
+    display: none;
+}
+
+.change-list .filtered table {
+    border-right: none;
+}
+
+.change-list .filtered {
+    min-height: 400px;
+}
+
+.change-list .filtered .results,
+.change-list .filtered .paginator,
+.filtered #toolbar,
+.filtered div.xfull {
+    width: auto;
+}
+
+.change-list .filtered table tbody th {
+    padding-right: 1em;
+}
+
+#changelist-form .results {
+    overflow-x: auto;
+    width: 100%;
+}
+
+#changelist .toplinks {
+    border-bottom: 1px solid var(--hairline-color);
+}
+
+#changelist .paginator {
+    color: var(--body-quiet-color);
+    border-bottom: 1px solid var(--hairline-color);
+    background: var(--body-bg);
+    overflow: hidden;
+}
