@@ -1093,3 +1093,79 @@ a.deletelink:hover {
 #logout-form button:hover {
     margin-bottom: 1px;
 }
+
+/* SIDEBAR */
+
+#content-related {
+    background: var(--darkened-bg);
+}
+
+#content-related .module {
+    background: none;
+}
+
+#content-related h3 {
+    color: var(--body-quiet-color);
+    padding: 0 16px;
+    margin: 0 0 16px;
+}
+
+#content-related h4 {
+    font-size: 0.8125rem;
+}
+
+#content-related p {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#content-related .actionlist {
+    padding: 0;
+    margin: 16px;
+}
+
+#content-related .actionlist li {
+    line-height: 1.2;
+    margin-bottom: 10px;
+    padding-left: 18px;
+}
+
+#content-related .module h2 {
+    background: none;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--hairline-color);
+    font-size: 1.125rem;
+    color: var(--body-fg);
+}
+
+.delete-confirmation form input[type="submit"] {
+    background: var(--delete-button-bg);
+    border-radius: 4px;
+    padding: 10px 15px;
+    color: var(--button-fg);
+}
+
+.delete-confirmation form input[type="submit"]:active,
+.delete-confirmation form input[type="submit"]:focus,
+.delete-confirmation form input[type="submit"]:hover {
+    background: var(--delete-button-hover-bg);
+}
+
+.delete-confirmation form .cancel-link {
+    display: inline-block;
+    vertical-align: middle;
+    height: 0.9375rem;
+    line-height: 0.9375rem;
+    border-radius: 4px;
+    padding: 10px 15px;
+    color: var(--button-fg);
+    background: var(--close-button-bg);
+    margin: 0 0 0 10px;
+}
+
+.delete-confirmation form .cancel-link:active,
+.delete-confirmation form .cancel-link:focus,
+.delete-confirmation form .cancel-link:hover {
+    background: var(--close-button-hover-bg);
+}
