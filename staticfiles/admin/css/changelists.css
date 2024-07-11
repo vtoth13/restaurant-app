@@ -225,3 +225,26 @@
     padding-bottom: 10px;
     border-bottom: 1px solid var(--hairline-color);
 }
+
+/* DATE DRILLDOWN */
+
+.change-list .toplinks {
+    display: flex;
+    padding-bottom: 5px;
+    flex-wrap: wrap;
+    gap: 3px 17px;
+    font-weight: bold;
+}
+
+.change-list .toplinks a {
+    font-size: 0.8125rem;
+}
+
+.change-list .toplinks .date-back {
+    color: var(--body-quiet-color);
+}
+
+.change-list .toplinks .date-back:focus,
+.change-list .toplinks .date-back:hover {
+    color: var(--link-hover-color);
+}
