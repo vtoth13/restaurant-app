@@ -64,3 +64,21 @@ div.breadcrumbs {
     margin-left: 300px;
     margin-right: 0;
 }
+
+/* SORTABLE TABLES */
+
+table thead th.sorted .sortoptions {
+    float: left;
+}
+
+thead th.sorted .text {
+    padding-right: 0;
+    padding-left: 42px;
+}
+
+/* dashboard styles */
+
+.dashboard .module table td a {
+    padding-left: .6em;
+    padding-right: 16px;
+}
