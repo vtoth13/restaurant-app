@@ -230,3 +230,74 @@ a.active.selector-clearall:hover {
 .stacked .selector-available input {
     width: 422px;
 }
+
+.stacked ul.selector-chooser {
+    height: 22px;
+    width: 50px;
+    margin: 0 0 10px 40%;
+    background-color: #eee;
+    border-radius: 10px;
+    transform: none;
+}
+
+.stacked .selector-chooser li {
+    float: left;
+    padding: 3px 3px 3px 5px;
+}
+
+.stacked .selector-chooseall,
+.stacked .selector-clearall {
+    display: none;
+}
+
+.stacked .selector-add {
+    background: url(../img/selector-icons.svg) 0 -32px no-repeat;
+    cursor: default;
+}
+
+.stacked .active.selector-add {
+    background-position: 0 -32px;
+    cursor: pointer;
+}
+
+.stacked .active.selector-add:focus,
+.stacked .active.selector-add:hover {
+    background-position: 0 -48px;
+    cursor: pointer;
+}
+
+.stacked .selector-remove {
+    background: url(../img/selector-icons.svg) 0 0 no-repeat;
+    cursor: default;
+}
+
+.stacked .active.selector-remove {
+    background-position: 0 0px;
+    cursor: pointer;
+}
+
+.stacked .active.selector-remove:focus,
+.stacked .active.selector-remove:hover {
+    background-position: 0 -16px;
+    cursor: pointer;
+}
+
+.selector .help-icon {
+    background: url(../img/icon-unknown.svg) 0 0 no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    margin: -2px 0 0 2px;
+    width: 13px;
+    height: 13px;
+}
+
+.selector .selector-chosen .help-icon {
+    background: url(../img/icon-unknown-alt.svg) 0 0 no-repeat;
+}
+
+.selector .search-label-icon {
+    background: url(../img/search.svg) 0 0 no-repeat;
+    display: inline-block;
+    height: 1.125rem;
+    width: 1.125rem;
+}
