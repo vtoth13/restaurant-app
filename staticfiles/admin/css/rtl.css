@@ -37,3 +37,30 @@ thead th:first-child,
 tfoot td:first-child {
     border-left: none;
 }
+
+/* LAYOUT */
+
+#user-tools {
+    right: auto;
+    left: 0;
+    text-align: left;
+}
+
+div.breadcrumbs {
+    text-align: right;
+}
+
+#content-main {
+    float: right;
+}
+
+#content-related {
+    float: left;
+    margin-left: -300px;
+    margin-right: auto;
+}
+
+.colMS {
+    margin-left: 300px;
+    margin-right: 0;
+}
