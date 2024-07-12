@@ -568,4 +568,118 @@ button {
     .object-tools li+li {
         margin-left: 15px;
     }
+
+    /* Forms */
+
+    .form-row {
+        padding: 15px 0;
+    }
+
+    .aligned .form-row,
+    .aligned .form-row>div {
+        max-width: 100vw;
+    }
+
+    .aligned .form-row>div {
+        width: calc(100vw - 30px);
+    }
+
+    .flex-container {
+        flex-flow: column;
+    }
+
+    .flex-container.checkbox-row {
+        flex-flow: row;
+    }
+
+    textarea {
+        max-width: none;
+    }
+
+    .vURLField {
+        width: auto;
+    }
+
+    fieldset .fieldBox+.fieldBox {
+        margin-top: 15px;
+        padding-top: 15px;
+    }
+
+    fieldset.collapsed .form-row {
+        display: none;
+    }
+
+    .aligned label {
+        width: 100%;
+        min-width: auto;
+        padding: 0 0 10px;
+    }
+
+    .aligned label:after {
+        max-height: 0;
+    }
+
+    .aligned .form-row input,
+    .aligned .form-row select,
+    .aligned .form-row textarea {
+        flex: 1 1 auto;
+        max-width: 100%;
+    }
+
+    .aligned .checkbox-row input {
+        flex: 0 1 auto;
+        margin: 0;
+    }
+
+    .aligned .vCheckboxLabel {
+        flex: 1 0;
+        padding: 1px 0 0 5px;
+    }
+
+    .aligned label+p,
+    .aligned label+div.help,
+    .aligned label+div.readonly {
+        padding: 0;
+        margin-left: 0;
+    }
+
+    .aligned p.file-upload {
+        font-size: 0.8125rem;
+    }
+
+    span.clearable-file-input {
+        margin-left: 15px;
+    }
+
+    span.clearable-file-input label {
+        font-size: 0.8125rem;
+        padding-bottom: 0;
+    }
+
+    .aligned .timezonewarning {
+        flex: 1 0 100%;
+        margin-top: 5px;
+    }
+
+    form .aligned .form-row div.help {
+        width: 100%;
+        margin: 5px 0 0;
+        padding: 0;
+    }
+
+    form .aligned ul,
+    form .aligned ul.errorlist {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    form .aligned div.radiolist {
+        margin-top: 5px;
+        margin-right: 15px;
+        margin-bottom: -3px;
+    }
+
+    form .aligned div.radiolist:not(.inline) div+div {
+        margin-top: 5px;
+    }
 }
