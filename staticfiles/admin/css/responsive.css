@@ -477,3 +477,23 @@ button {
     }
 
 }
+
+/* Mobile */
+
+@media (max-width: 767px) {
+    /* Layout */
+
+    #header,
+    #content,
+    #footer {
+        padding: 15px;
+    }
+
+    #footer:empty {
+        padding: 0;
+    }
+
+    div.breadcrumbs {
+        padding: 10px 15px;
+    }
+}
