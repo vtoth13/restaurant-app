@@ -882,4 +882,57 @@ button {
         padding: 4px 10px;
     }
 
+    /* Login */
+
+    body.login {
+        padding: 0 15px;
+    }
+
+    .login #container {
+        width: auto;
+        max-width: 480px;
+        margin: 50px auto;
+    }
+
+    .login #header,
+    .login #content {
+        padding: 15px;
+    }
+
+    .login #content-main {
+        float: none;
+    }
+
+    .login .form-row {
+        padding: 0;
+    }
+
+    .login .form-row+.form-row {
+        margin-top: 15px;
+    }
+
+    .login .form-row label {
+        margin: 0 0 5px;
+        line-height: 1.2;
+    }
+
+    .login .submit-row {
+        padding: 15px 0 0;
+    }
+
+    .login br {
+        display: none;
+    }
+
+    .login .submit-row input {
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    .errornote {
+        margin: 0 0 20px;
+        padding: 8px 12px;
+        font-size: 0.8125rem;
+    }
+
 }
