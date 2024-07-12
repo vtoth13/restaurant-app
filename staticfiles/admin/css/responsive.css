@@ -834,4 +834,29 @@ button {
         padding: 8px 10px 8px 26px;
         background-position: 8px 9px;
     }
+
+    /* Submit row */
+
+    .submit-row {
+        padding: 10px;
+        margin: 0 0 15px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .submit-row input,
+    .submit-row input.default,
+    .submit-row a {
+        text-align: center;
+    }
+
+    .submit-row a.closelink {
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .submit-row a.deletelink {
+        margin: 0;
+    }
+
 }
