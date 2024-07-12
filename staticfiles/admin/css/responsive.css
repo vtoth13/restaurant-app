@@ -712,4 +712,55 @@ button {
         margin-left: 15px;
     }
 
+    /* Selector */
+
+    .selector {
+        flex-direction: column;
+    }
+
+    .selector>* {
+        float: none;
+    }
+
+    .selector-available,
+    .selector-chosen {
+        margin-bottom: 0;
+        flex: 1 1 auto;
+    }
+
+    .selector select {
+        max-height: 96px;
+    }
+
+    .selector ul.selector-chooser {
+        display: block;
+        float: none;
+        width: 52px;
+        height: 26px;
+        padding: 0 2px;
+        margin: 15px auto 20px;
+        transform: none;
+    }
+
+    .selector ul.selector-chooser li {
+        float: left;
+    }
+
+    .selector-remove {
+        background-position: 0 0;
+    }
+
+    .active.selector-remove:focus,
+    .active.selector-remove:hover {
+        background-position: 0 -20px;
+    }
+
+    .selector-add {
+        background-position: 0 -40px;
+    }
+
+    .active.selector-add:focus,
+    .active.selector-add:hover {
+        background-position: 0 -60px;
+    }
 }
