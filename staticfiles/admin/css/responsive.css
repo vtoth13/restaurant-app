@@ -682,4 +682,34 @@ button {
     form .aligned div.radiolist:not(.inline) div+div {
         margin-top: 5px;
     }
+
+    /* Related widget */
+
+    .related-widget-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .related-widget-wrapper .selector {
+        order: 1;
+    }
+
+    .related-widget-wrapper>a {
+        order: 2;
+    }
+
+    .related-widget-wrapper .radiolist~a {
+        align-self: flex-end;
+    }
+
+    .related-widget-wrapper>select~a {
+        align-self: center;
+    }
+
+    select+.related-widget-wrapper-link,
+    .related-widget-wrapper-link+.related-widget-wrapper-link {
+        margin-left: 15px;
+    }
+
 }
