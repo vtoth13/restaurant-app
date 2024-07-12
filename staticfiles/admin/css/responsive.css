@@ -496,4 +496,27 @@ button {
     div.breadcrumbs {
         padding: 10px 15px;
     }
+
+    /* Dashboard */
+
+    .colMS,
+    .colSM {
+        margin: 0;
+    }
+
+    #content-related,
+    .colSM #content-related {
+        width: 100%;
+        margin: 0;
+    }
+
+    #content-related .module {
+        margin-bottom: 0;
+    }
+
+    #content-related .module h2 {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+
 }
