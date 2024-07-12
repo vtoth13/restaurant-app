@@ -171,4 +171,77 @@ button {
         border-top: none;
     }
 
+    /* Forms */
+
+    label {
+        font-size: 0.875rem;
+    }
+
+    .form-row input[type=text],
+    .form-row input[type=password],
+    .form-row input[type=email],
+    .form-row input[type=url],
+    .form-row input[type=tel],
+    .form-row input[type=number],
+    .form-row textarea,
+    .form-row select,
+    .form-row .vTextField {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 6px 8px;
+        min-height: 2.25rem;
+        font-size: 0.875rem;
+    }
+
+    .form-row select {
+        height: 2.25rem;
+    }
+
+    .form-row select[multiple] {
+        height: auto;
+        min-height: 0;
+    }
+
+    fieldset .fieldBox+.fieldBox {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid var(--hairline-color);
+    }
+
+    textarea {
+        max-width: 100%;
+        max-height: 120px;
+    }
+
+    .aligned label {
+        padding-top: 6px;
+    }
+
+    .aligned .related-lookup,
+    .aligned .datetimeshortcuts,
+    .aligned .related-lookup+strong {
+        align-self: center;
+        margin-left: 15px;
+    }
+
+    form .aligned div.radiolist {
+        margin-left: 2px;
+    }
+
+    .submit-row {
+        padding: 8px;
+    }
+
+    .submit-row a.deletelink {
+        padding: 10px 7px;
+    }
+
+    .button,
+    input[type=submit],
+    input[type=button],
+    .submit-row input,
+    a.button {
+        padding: 7px;
+    }
+
 }
