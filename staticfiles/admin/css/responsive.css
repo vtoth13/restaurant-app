@@ -1,0 +1,25 @@
+/* Tablets */
+
+input[type="submit"],
+button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+@media (max-width: 1024px) {
+    /* Basic */
+
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+
+    td,
+    th {
+        padding: 10px;
+        font-size: 0.875rem;
+    }
+
+    .small {
+        font-size: 0.75rem;
+    }
+}
