@@ -244,4 +244,236 @@ button {
         padding: 7px;
     }
 
+    /* Related widget */
+
+    .related-widget-wrapper {
+        float: none;
+    }
+
+    .related-widget-wrapper-link+.selector {
+        max-width: calc(100% - 30px);
+        margin-right: 15px;
+    }
+
+    select+.related-widget-wrapper-link,
+    .related-widget-wrapper-link+.related-widget-wrapper-link {
+        margin-left: 10px;
+    }
+
+    /* Selector */
+
+    .selector {
+        display: flex;
+        width: 100%;
+    }
+
+    .selector .selector-filter {
+        display: flex;
+        align-items: center;
+    }
+
+    .selector .selector-filter label {
+        margin: 0 8px 0 0;
+    }
+
+    .selector .selector-filter input {
+        width: auto;
+        min-height: 0;
+        flex: 1 1;
+    }
+
+    .selector-available,
+    .selector-chosen {
+        width: auto;
+        flex: 1 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .selector select {
+        width: 100%;
+        flex: 1 0 auto;
+        margin-bottom: 5px;
+    }
+
+    .selector ul.selector-chooser {
+        width: 26px;
+        height: 52px;
+        padding: 2px 0;
+        margin: auto 15px;
+        border-radius: 20px;
+        transform: translateY(-10px);
+    }
+
+    .selector-add,
+    .selector-remove {
+        width: 20px;
+        height: 20px;
+        background-size: 20px auto;
+    }
+
+    .selector-add {
+        background-position: 0 -120px;
+    }
+
+    .selector-remove {
+        background-position: 0 -80px;
+    }
+
+    a.selector-chooseall,
+    a.selector-clearall {
+        align-self: center;
+    }
+
+    .stacked {
+        flex-direction: column;
+        max-width: 480px;
+    }
+
+    .stacked>* {
+        flex: 0 1 auto;
+    }
+
+    .stacked select {
+        margin-bottom: 0;
+    }
+
+    .stacked .selector-available,
+    .stacked .selector-chosen {
+        width: auto;
+    }
+
+    .stacked ul.selector-chooser {
+        width: 52px;
+        height: 26px;
+        padding: 0 2px;
+        margin: 15px auto;
+        transform: none;
+    }
+
+    .stacked .selector-chooser li {
+        padding: 3px;
+    }
+
+    .stacked .selector-add,
+    .stacked .selector-remove {
+        background-size: 20px auto;
+    }
+
+    .stacked .selector-add {
+        background-position: 0 -40px;
+    }
+
+    .stacked .active.selector-add {
+        background-position: 0 -40px;
+    }
+
+    .active.selector-add:focus,
+    .active.selector-add:hover {
+        background-position: 0 -140px;
+    }
+
+    .stacked .active.selector-add:focus,
+    .stacked .active.selector-add:hover {
+        background-position: 0 -60px;
+    }
+
+    .stacked .selector-remove {
+        background-position: 0 0;
+    }
+
+    .stacked .active.selector-remove {
+        background-position: 0 0;
+    }
+
+    .active.selector-remove:focus,
+    .active.selector-remove:hover {
+        background-position: 0 -100px;
+    }
+
+    .stacked .active.selector-remove:focus,
+    .stacked .active.selector-remove:hover {
+        background-position: 0 -20px;
+    }
+
+    .help-tooltip,
+    .selector .help-icon {
+        display: none;
+    }
+
+    .datetime input {
+        width: 50%;
+        max-width: 120px;
+    }
+
+    .datetime span {
+        font-size: 0.8125rem;
+    }
+
+    .datetime .timezonewarning {
+        display: block;
+        font-size: 0.6875rem;
+        color: var(--body-quiet-color);
+    }
+
+    .datetimeshortcuts {
+        color: var(--border-color);
+    }
+
+    .form-row .datetime input.vDateField,
+    .form-row .datetime input.vTimeField {
+        width: 75%;
+    }
+
+    .inline-group {
+        overflow: auto;
+    }
+
+    /* Messages */
+
+    ul.messagelist li {
+        padding-left: 55px;
+        background-position: 30px 12px;
+    }
+
+    ul.messagelist li.error {
+        background-position: 30px 12px;
+    }
+
+    ul.messagelist li.warning {
+        background-position: 30px 14px;
+    }
+
+    /* Login */
+
+    .login #header {
+        padding: 15px 20px;
+    }
+
+    .login #branding h1 {
+        margin: 0;
+    }
+
+    /* GIS */
+
+    div.olMap {
+        max-width: calc(100vw - 30px);
+        max-height: 300px;
+    }
+
+    .olMap+.clear_features {
+        display: block;
+        margin-top: 10px;
+    }
+
+    /* Docs */
+
+    .module table.xfull {
+        width: 100%;
+    }
+
+    pre.literal-block {
+        overflow: auto;
+    }
+
 }
