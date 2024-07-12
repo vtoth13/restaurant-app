@@ -873,4 +873,13 @@ button {
     ul.messagelist li.warning {
         background-position: 15px 14px;
     }
+
+    /* Paginator */
+
+    .paginator .this-page,
+    .paginator a:link,
+    .paginator a:visited {
+        padding: 4px 10px;
+    }
+
 }
