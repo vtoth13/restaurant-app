@@ -519,4 +519,53 @@ button {
         font-size: 1rem;
     }
 
+    /* Changelist */
+
+    #changelist {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    #toolbar {
+        padding: 10px;
+    }
+
+    #changelist-filter {
+        margin-left: 0;
+    }
+
+    #changelist .actions label {
+        flex: 1 1;
+    }
+
+    #changelist .actions select {
+        flex: 1 0;
+        width: 100%;
+    }
+
+    #changelist .actions span {
+        flex: 1 0 100%;
+    }
+
+    #changelist-filter {
+        position: static;
+        width: auto;
+        margin-top: 30px;
+    }
+
+    .object-tools {
+        float: none;
+        margin: 0 0 15px;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .object-tools li {
+        height: auto;
+        margin-left: 0;
+    }
+
+    .object-tools li+li {
+        margin-left: 15px;
+    }
 }
