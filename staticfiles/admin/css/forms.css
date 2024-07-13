@@ -77,3 +77,119 @@ form ul.inline li {
     float: left;
     padding-right: 7px;
 }
+
+/* ALIGNED FIELDSETS */
+
+.aligned label {
+    display: block;
+    padding: 4px 10px 0 0;
+    min-width: 160px;
+    width: 160px;
+    word-wrap: break-word;
+    line-height: 1;
+}
+
+.aligned label:not(.vCheckboxLabel):after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 1.625rem;
+}
+
+.aligned label+p,
+.aligned .checkbox-row+div.help,
+.aligned label+div.readonly {
+    padding: 6px 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    overflow-wrap: break-word;
+}
+
+.aligned ul label {
+    display: inline;
+    float: none;
+    width: auto;
+}
+
+.aligned .form-row input {
+    margin-bottom: 0;
+}
+
+.colMS .aligned .vLargeTextField,
+.colMS .aligned .vXMLLargeTextField {
+    width: 350px;
+}
+
+form .aligned ul {
+    margin-left: 160px;
+    padding-left: 10px;
+}
+
+form .aligned div.radiolist {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+form .aligned p.help,
+form .aligned div.help {
+    margin-top: 0;
+    margin-left: 160px;
+    padding-left: 10px;
+}
+
+form .aligned p.date div.help.timezonewarning,
+form .aligned p.datetime div.help.timezonewarning,
+form .aligned p.time div.help.timezonewarning {
+    margin-left: 0;
+    padding-left: 0;
+    font-weight: normal;
+}
+
+form .aligned p.help:last-child,
+form .aligned div.help:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+form .aligned input+p.help,
+form .aligned textarea+p.help,
+form .aligned select+p.help,
+form .aligned input+div.help,
+form .aligned textarea+div.help,
+form .aligned select+div.help {
+    margin-left: 160px;
+    padding-left: 10px;
+}
+
+form .aligned ul li {
+    list-style: none;
+}
+
+form .aligned table p {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.aligned .vCheckboxLabel {
+    float: none;
+    width: auto;
+    display: inline-block;
+    vertical-align: -3px;
+    padding: 0 0 5px 5px;
+}
+
+.aligned .vCheckboxLabel+p.help,
+.aligned .vCheckboxLabel+div.help {
+    margin-top: -4px;
+}
+
+.colM .aligned .vLargeTextField,
+.colM .aligned .vXMLLargeTextField {
+    width: 610px;
+}
+
+fieldset .fieldBox {
+    margin-right: 20px;
+}
