@@ -34,3 +34,17 @@ form .form-row p {
 .form-multiline>div {
     padding-bottom: 10px;
 }
+
+/* FORM LABELS */
+
+label {
+    font-weight: normal;
+    color: var(--body-quiet-color);
+    font-size: 0.8125rem;
+}
+
+.required label,
+label.required {
+    font-weight: bold;
+    color: var(--body-fg);
+}
