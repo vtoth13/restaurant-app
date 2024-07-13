@@ -1,0 +1,36 @@
+@import url('widgets.css');
+
+/* FORM ROWS */
+
+.form-row {
+    overflow: hidden;
+    padding: 10px;
+    font-size: 0.8125rem;
+    border-bottom: 1px solid var(--hairline-color);
+}
+
+.form-row img,
+.form-row input {
+    vertical-align: middle;
+}
+
+.form-row label input[type="checkbox"] {
+    margin-top: 0;
+    vertical-align: 0;
+}
+
+form .form-row p {
+    padding-left: 0;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.form-multiline {
+    flex-wrap: wrap;
+}
+
+.form-multiline>div {
+    padding-bottom: 10px;
+}
