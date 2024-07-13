@@ -1015,4 +1015,23 @@ button {
         top: 10px;
     }
 
+    /* History */
+
+    table#change-history tbody th,
+    table#change-history tbody td {
+        font-size: 0.8125rem;
+        word-break: break-word;
+    }
+
+    table#change-history tbody th {
+        width: auto;
+    }
+
+    /* Docs */
+
+    table.model tbody th,
+    table.model tbody td {
+        font-size: 0.8125rem;
+        word-break: break-word;
+    }
 }
