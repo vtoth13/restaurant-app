@@ -329,3 +329,61 @@ body.popup .submit-row {
     background: var(--close-button-hover-bg);
     text-decoration: none;
 }
+
+/* CUSTOM FORM FIELDS */
+
+.vSelectMultipleField {
+    vertical-align: top;
+}
+
+.vCheckboxField {
+    border: none;
+}
+
+.vDateField,
+.vTimeField {
+    margin-right: 2px;
+    margin-bottom: 4px;
+}
+
+.vDateField {
+    min-width: 6.85em;
+}
+
+.vTimeField {
+    min-width: 4.7em;
+}
+
+.vURLField {
+    width: 30em;
+}
+
+.vLargeTextField,
+.vXMLLargeTextField {
+    width: 48em;
+}
+
+.flatpages-flatpage #id_content {
+    height: 40.2em;
+}
+
+.module table .vPositiveSmallIntegerField {
+    width: 2.2em;
+}
+
+.vIntegerField {
+    width: 5em;
+}
+
+.vBigIntegerField {
+    width: 10em;
+}
+
+.vForeignKeyRawIdAdminField {
+    width: 5em;
+}
+
+.vTextField,
+.vUUIDField {
+    width: 20em;
+}
