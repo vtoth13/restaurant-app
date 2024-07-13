@@ -253,3 +253,9 @@ fieldset.collapsed .collapse-toggle {
     display: inline;
     color: var(--link-fg);
 }
+
+/* MONOSPACE TEXTAREAS */
+
+fieldset.monospace textarea {
+    font-family: var(--font-family-monospace);
+}
