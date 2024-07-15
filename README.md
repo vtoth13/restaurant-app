@@ -1,131 +1,227 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Restaurant App - README
 
-Welcome USER_NAME,
+## Introduction
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Welcome to the Restaurant App! This application is designed to streamline restaurant reservations and menu management. It provides a user-friendly interface for customers to book tables and browse the menu, while also offering administrative functionalities for restaurant staff to manage bookings and tables efficiently.
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+## User Stories
+**First-Time Visitor Goals**
+| Issue ID | User Story |
+|----------|------------|
+|[#1](https://github.com/vtoth13/restaurant-app/issues/1) | As a first-time user, I want to see a clear and inviting homepage with all the necessary information about the restaurant, so that I can decide whether I want to dine there. |
+|[#2](https://github.com/vtoth13/restaurant-app/issues/2) | As a first-time user, I want to view a menu that shows the tables and how many people each table can seat, so that I can understand the restaurant's seating arrangements. |
+|[#3](https://github.com/vtoth13/restaurant-app/issues/3) | As a first-time user, I want to browse through the restaurant's food and drink menu, so I can see what items are available before making a booking. |
+|[#4](https://github.com/vtoth13/restaurant-app/issues/4) | As a first-time user, I want to create an account, so I can make a booking and manage my reservations. |
+|[#5](https://github.com/vtoth13/restaurant-app/issues/5) | As a first-time user, I want to make a new booking, so I can reserve a table for my preferred date and time. |
 
-## Gitpod Reminders
+**Frequent User Goals**
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+| Issue ID | User Story |
+|----------|------------|
+|[#6](https://github.com/vtoth13/restaurant-app/issues/6)|As a frequent user, I want to log in to my account quickly, so I can access my booking information and make new reservations.|
+|[#7](https://github.com/vtoth13/restaurant-app/issues/7)|As a frequent user, I want to view my existing bookings, so I can check the details of my reservations and make any necessary changes.|
+|[#8](https://github.com/vtoth13/restaurant-app/issues/8)|As a frequent user, I want to create a new booking easily, so I can reserve a table for another visit without much hassle.|
+|[#9](https://github.com/vtoth13/restaurant-app/issues/9)|As a frequent user, I want to browse the menu regularly to check for new items, so I can try different dishes each time I visit.|
 
-`python3 -m http.server`
+**Restaurant Owner Goals**
 
-A blue button should appear to click: _Make Public_,
+| Issue ID | User Story |
+|----------|------------|
+|[#10](https://github.com/vtoth13/restaurant-app/issues/10)|As the restaurant owner, I want my staff to have their own login, so they can manage tables and bookings without interfering with customer accounts.|
+|[#11](https://github.com/vtoth13/restaurant-app/issues/11)|As the restaurant owner, I want my staff to view all existing tables and their seating capacities, so they can manage reservations efficiently.|
+|[#12](https://github.com/vtoth13/restaurant-app/issues/12)|As the restaurant owner, I want my staff to be able to create new tables and edit existing ones, so they can optimize the restaurant's seating arrangements.|
+|[#13](https://github.com/vtoth13/restaurant-app/issues/13)|As the restaurant owner, I want my staff to view all bookings, so they can manage reservations and ensure a smooth operation.|
+|[#14](https://github.com/vtoth13/restaurant-app/issues/14)|As the restaurant owner, I want my staff to edit the food and drink menu, so we can update the items offered based on availability and new offerings.|
+|[#15](https://github.com/vtoth13/restaurant-app/issues/15)|As the restaurant owner, I want my staff to add new items to the menu, so we can keep the menu fresh and exciting for customers.|
 
-Another blue button should appear to click: _Open Browser_.
+## Features
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+- **Table Management**: View available tables and their seating capacities.
+- **Menu Management**: Browse the restaurant's menu with detailed descriptions and images.
+- **Booking System**: Create, view, and cancel table bookings.
+- **User Authentication**: Sign up, log in, and manage bookings as an authenticated user.
+- **Admin Panel**: Access administrative features for managing tables and bookings.
 
-A blue button should appear to click: _Make Public_,
+## Usage
 
-Another blue button should appear to click: _Open Browser_.
+### Customer
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+1. **Browse Menu**: Navigate to the menu section to view available dishes.
+2. **Book a Table**: Select an available table and specify booking details such as time and number of guests.
+3. **View Bookings**: Check your current bookings and cancel if necessary.
 
-To log into the Heroku toolbelt CLI:
+### Admin
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+1. **Manage Tables**: Add, update, or remove tables from the system.
+2. **View All Bookings**: Access a comprehensive list of all customer bookings.
+3. **Update Menu**: Add or update menu items, including descriptions and images.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+## Technology Stack
 
-### Connecting your Mongo database
+#### 1. **Framework: Django**
+   - **Version:** 4.2.13
+   - **Usage:** Django is the primary web framework in use. It handles the MVC (Model-View-Controller) paradigm, routing, ORM (Object Relational Mapping), and templating.
+   - **Configuration Files:** 
+     - `settings.py`: Stores configuration like database settings, installed apps, middleware, static and media files settings【4:0†source】【4:5†source】.
+     - `urls.py`: Defines URL routing for the app.
+     - `wsgi.py` and `asgi.py`: Configurations for WSGI and ASGI, enabling the Django app to handle web server requests【4:4†source】.
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+#### 2. **Database: SQLite**
+   - **Usage:** Used as the default database for the app.
+   - **Configuration File:** `settings.py` specifies SQLite as the database backend with default settings【4:5†source】.
 
-------
+#### 3. **Frontend Technologies: HTML, CSS, JavaScript**
+   - **Templating Engine:** Django Templates
+     - **Files:** Templates are stored in the `templates` directory. Example templates include `menu.html`, `signup.html`, and more.
 
-## Release History
+#### 4. **Forms and Input Handling**
+   - **Django Forms:** Used to manage user inputs efficiently.
+     - **Files:** `forms.py` bridges communication between HTML forms and Django's ORM【4:4†source】.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+#### 5. **Admin Interface**
+   - **Django Admin:** Provides a robust administrative interface.
+     - **Configurations:** Defined in `admin.py`. Customizations for displaying models in the admin interface are present for models such as `Table`, `MenuItem`, and `Booking`.
+  
+#### 6. **User Authentication**
+   - **Django Auth:** Default user authentication system.
+     - **Implementations:** User management is defined in `accounts` app files (e.g., `urls.py`, `views.py`).
 
-**June 18, 2024,** Add Mongo back into template
+#### 7. **Static Files and Media**
+   - **Library:** Pillow
+   - **Usage:** Handling image uploads for menu items.
+   - **Configuration:** Paths and file handling are defined in `settings.py`【4:5†source】 and model definitions include image fields.
+  
+#### 8. **Middlewares**
+   - **Security and Sessions:** Includes middleware for security and session handling.
+   - **Files:** Defined in `settings.py` under the `MIDDLEWARE` section【4:5†source】.
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+#### 9. **JavaScript Libraries: jQuery**
+   - **Usage:** Utilized for dynamic form handling and interactions in the Django admin interface.
+   - **Files:** Custom scripts for formset and other dynamic functionalities.
 
-**May 28 2024:** Fix Mongo and Links installs
+#### 10. **Additional Python Packages**
+   - **Packages:** The project depends on several additional Python libraries:
+     - `django-crispy-forms` for enhanced form rendering.
+     - `django-filter` for data filtering in views.
+     - `django-widget-tweaks` for form widget customization.
+     - **Dependency File:** Referenced in `requirements.txt`.
 
-**April 26 2024:** Update node version to 16
+### Requirements
 
-**September 20 2023:** Update Python version to 3.9.17.
+Here is a list of key packages and their versions used in the project:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+| Package                 | Version   |
+|-------------------------|-----------|
+| Django                  | 4.2.13    |
+| django-crispy-forms     | 1.11.2    |
+| django-filter           | 2.4.0     |
+| django-widget-tweaks    | 1.4.8     |
+| mysqlclient             | 2.0.3     |
+| Pillow                  | 8.3.1     |
+| python-decouple         | 3.4       |
+| pytz                    | 2021.3    |
+| sqlparse                | 0.4.2     |
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+#### Notes:
+- **MySQLclient** is listed in `requirements.txt`, indicating potential setup for MySQL if needed in production environments.
+- **Python Decouple**: Used for managing configuration through environment variables, enhancing security and flexibility.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## Installation
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+1. **Clone the Repository**:
+    ```sh
+    git clone https://github.com/vtoth13/restaurant-app.git
+    cd restaurant-app
+    ```
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+2. **Create a Virtual Environment**:
+    ```sh
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+3. **Install Dependencies**:
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+4. **Set Up the Database**:
+    - Ensure MySQL is installed and running.
+    - Create a database for the project.
+    - Configure the database settings in `booking/settings.py`.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+5. **Apply Migrations**:
+    ```sh
+    python manage.py migrate
+    ```
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+6. **Create a Superuser**:
+    ```sh
+    python manage.py createsuperuser
+    ```
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+7. **Run the Server**:
+    ```sh
+    python manage.py runserver
+    ```
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## Configuration
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Database Configuration
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
+Update the `DATABASES` section in `booking/settings.py` to reflect your database settings:
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'your_db_name',
+        'USER': 'your_db_user',
+        'PASSWORD': 'your_db_password',
+        'HOST': 'your_db_host',
+        'PORT': 'your_db_port',
+    }
+}
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
+
+### Static and Media Files
+
+Configure the static and media file settings in `booking/settings.py`:
+```python
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ```
 
-**Anything more?**
+## Contributing
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+We welcome contributions to the Restaurant App! To contribute, please follow these steps:
 
----
+1. **Fork the Repository**: Click the "Fork" button on the repository's GitHub page.
 
-Happy coding!
+2. **Clone Your Fork**:
+    ```sh
+    git clone https://github.com/your-username/restaurant-app.git
+    cd restaurant-app
+    ```
+
+3. **Create a Branch**:
+    ```sh
+    git checkout -b feature/your-feature
+    ```
+
+4. **Make Your Changes**: Implement your feature or bug fix.
+
+5. **Commit Your Changes**:
+    ```sh
+    git add .
+    git commit -m "Add feature: your feature description"
+    ```
+
+6. **Push to Your Fork**:
+    ```sh
+    git push origin feature/your-feature
+    ```
+
+7. **Open a Pull Request**: Go to the original repository and open a pull request with a description of your changes.
+
