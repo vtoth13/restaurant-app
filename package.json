@@ -6,15 +6,13 @@
   "type": "commonjs",
   "keywords": [],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "vtoth13 <snapviki13@gmail.com>",
   "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/vtoth13/restaurant-app.git"
-  }
-  "scripts": {
-    "start": "node server.js"
   }
 }
