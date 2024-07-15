@@ -1,5 +1,20 @@
 {
-    "scripts": {
-        "start": "node server.js"
-    }
+  "name": "restaurant-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "keywords": [],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vtoth13 <snapviki13@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vtoth13/restaurant-app.git"
+  }
+  "scripts": {
+    "start": "node server.js"
+  }
 }
