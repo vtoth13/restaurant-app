@@ -15,9 +15,10 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
 
-    if len(sys.argv) == 1 or sys.argv[1] == 'runserver':
+    # Check if 'runserver' is in the arguments and append port
+    if 'runserver' in sys.argv:
         port = os.environ.get('PORT', '8000')
-        sys.argv.append(f'0.0.0.0:{port}')
+        sys.argv[sys.argv.index('runserver') + 1:] = [f'0.0.0.0:{port}']
 
     execute_from_command_line(sys.argv)
 
