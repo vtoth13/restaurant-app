@@ -3,9 +3,9 @@
 /* VARIABLE DEFINITIONS */
 html[data-theme="light"],
 :root {
-    --primary: #79aec8;
-    --secondary: #417690;
-    --accent: #f5dd5d;
+    --primary: #BCAA99;
+    --secondary: #674C47;
+    --accent: #E4FF1A;
     --primary-fg: #fff;
 
     --body-fg: #333;
@@ -22,9 +22,9 @@ html[data-theme="light"],
     --breadcrumbs-link-fg: var(--body-bg);
     --breadcrumbs-bg: var(--primary);
 
-    --link-fg: #417893;
-    --link-hover-color: #036;
-    --link-selected-fg: #5b80b2;
+    --link-fg: #4B6858;
+    --link-hover-color: #0E3B43;
+    --link-selected-fg: #06BCC1;
 
     --hairline-color: #e8e8e8;
     --border-color: #ccc;
