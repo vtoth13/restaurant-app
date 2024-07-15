@@ -1,1 +1,1 @@
-web: gunicorn restaurant-application.wsgi:application   
+web: python manage.py runserver
