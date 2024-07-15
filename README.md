@@ -348,6 +348,264 @@ Source: `3-restaurant-app-d9a4dff/staticfiles/admin/js/theme.js`
 - Font Awesome Icons: http://fontawesome.io/ 
 - Bootstrap 4 CDN: https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css 
 
+## Information Architecture
+
+### 1. Project Structure
+The project is divided into several major sections to enhance maintainability and scalability:
+- **Accounts:** Handles user authentication and authorization.
+- **Main:** Contains the core functionality for managing tables, menu items, and bookings.
+- **Staticfiles:** Stores static resources like CSS, JavaScript, and images.
+
+### 2. Models
+
+The primary models included in the `main` app are:
+- **Table**
+- **MenuItem**
+- **Booking**
+
+#### Table
+Manages the restaurant's tables including their number, seating capacity, and availability status.
+
+```python
+from django.db import models
+
+class Table(models.Model):
+    table_number = models.IntegerField(unique=True)
+    seats = models.IntegerField()
+    available = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"Table#{self.table_number} ({self.seats} seats)"
+```
+
+#### MenuItem
+Represents the items available on the restaurant's menu, including name, description, price, and an image.
+
+```python
+from django.db import models
+
+class MenuItem(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to="menu")
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        return self.name
+```
+
+#### Booking
+Manages customer bookings, linking users to tables and capturing booking details.
+
+```python
+from django.db import models
+from django.contrib.auth.models import User
+
+class Booking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    table = models.ForeignKey(Table, on_delete=models.CASCADE)
+    booking_time = models.DateTimeField()
+    number_of_people = models.IntegerField()
+    special_requests = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Booking by {self.user.username} for {self.number_of_people} people at {self.booking_time}"
+```
+
+### 3. Forms
+
+Django forms simplify the process of handling and validating user inputs. 
+
+#### BookingForm
+Used to create bookings with fields for the table, booking time, number of people, and special requests.
+
+```python
+import datetime
+from django import forms
+from .models import Booking, Table
+
+class BookingForm(forms.ModelForm):
+    table = forms.ModelChoiceField(queryset=Table.objects.filter(available=True))
+
+    class Meta:
+        model = Booking
+        fields = ('table', 'booking_time', 'number_of_people', 'special_requests')
+
+    booking_time = forms.DateTimeField(
+        widget=forms.DateTimeInput(attrs={
+            'type': 'datetime-local',
+            'min': datetime.date.today().strftime('%Y-%m-%dT%H:%M'),
+            'max': (datetime.date.today() + datetime.timedelta(days=90)).strftime('%Y-%m-%dT%H:%M')
+        }),
+    )
+
+    number_of_people = forms.IntegerField(
+        widget=forms.NumberInput(attrs={'min': 1}),
+    )
+
+    special_requests = forms.CharField(label='Special Request', required=False, widget=forms.TextInput(attrs={'size': '60'}))
+```
+
+### 4. Views
+
+The views in Django handle the logic for processing requests and returning responses.
+
+#### Example: Booking Create View
+Handles creating a booking, ensuring that only authenticated users can book a table.
+
+```python
+from .forms import BookingForm
+from django.shortcuts import render, redirect
+from .models import Table, Booking
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def booking_create(request):
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            booking = form.save(commit=False)
+            booking.user = request.user
+            booking.save()
+            Table.objects.filter(id=booking.table.id).update(available=False)
+            return redirect('booking_list')
+    else:
+        form = BookingForm()
+    return render(request, 'booking_form.html', {'form': form})
+```
+
+### 5. Admin Configuration
+
+Django's admin interface is configured to manage the restaurant's tables, menu items, and bookings.
+
+```python
+from django.contrib import admin
+from .models import Table, MenuItem, Booking
+
+class TableAdmin(admin.ModelAdmin):
+    list_display = ('table_number', 'seats', 'available')
+    search_fields = ('table_number',)
+
+class MenuItemAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price')
+    search_fields = ('name',)
+
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ('user', 'table', 'booking_time', 'number_of_people')
+    search_fields = ('user__username', 'table__table_number')
+    list_filter = ('booking_time',)
+
+admin.site.register(Table, TableAdmin)
+admin.site.register(MenuItem, MenuItemAdmin)
+admin.site.register(Booking, BookingAdmin)
+```
+
+### 6. URL Routing
+
+Defines URL patterns and their corresponding views, allowing users to navigate between different pages.
+
+```python
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('tables/', views.table_list, name='table_list'),
+    path('menu/', views.menu_list, name='menu_list'),
+    path('booking/create/', views.booking_create, name='booking_create'),
+    path('bookings/', views.booking_list, name='booking_list'),
+    path('cancel-booking/<int:booking_id>/', views.cancel_booking, name='cancel_booking'),
+    path('check-table-availability/<int:table_id>/<int:number_of_people>/', views.check_table_availability, name='check_table_availability'),
+]
+```
+
+### 7. Templates
+
+Django templates are HTML files that can dynamically generate content using data passed from views.
+
+#### Example: Booking Form Template
+
+```html
+{% extends 'base.html' %}
+{% block content %}
+  <div class="masthead">
+    <h1>Create Booking</h1>
+  </div>
+  <div class="features">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <div class="card mb-4">
+          <div class="card-body">
+            <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="btn btn-primary btn-block">Create Booking</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const dateTimeInput = document.getElementById('id_booking_time');
+    dateTimeInput.addEventListener('input', (e) => {
+      const dateTime = e.target.value;
+      const dateParts = dateTime.split('T')[0].split('-');
+      const timeParts = dateTime.split('T')[1].split(':');
+      const hours = parseInt(timeParts[0]);
+      const minutes = parseInt(timeParts[1]);
+      const minTime = 10 * 60;
+      const maxTime = 22 * 60;
+      const currentTime = hours * 60 + minutes;
+      if (currentTime < minTime || currentTime > maxTime) {
+        alert('Please select a time between 10:00 AM and 10:00 PM');
+        e.target.value = '';
+      }
+    });
+
+    const tableSelect = document.getElementById('id_table');
+    const numberOfPeopleInput = document.getElementById('id_number_of_people');
+    tableSelect.addEventListener('change', checkTableAvailability);
+    numberOfPeopleInput.addEventListener('input', checkTableAvailability);
+
+    function checkTableAvailability() {
+      const tableId = tableSelect.value;
+      const numberOfPeople = numberOfPeopleInput.value;
+      if (tableId && numberOfPeople) {
+        fetch(`/check-table-availability/${tableId}/${numberOfPeople}`)
+          .then(response => response.json())
+          .then(data => {
+            if (data.is_available) {
+              numberOfPeopleInput.setCustomValidity('');
+            } else {
+              numberOfPeopleInput.setCustomValidity('The selected table does not have enough seats for the number of people.');
+            }
+          })
+          .catch(error => console.error(error));
+      }
+    }
+  </script>
+{% endblock %}
+```
+
+### 8. Static Files
+
+Static resources like CSS, JavaScript, and images are stored in the `staticfiles` directory to be served by Django's static file management.
+
+## Testing
+
+Please refer to the [TESTING.md](TESTING.md) file for all test-related documentation.
+
+## Deployment
+
+
+- The app was deployed to [Render](https://render.com/).
+
+- The app can be reached by the [link](https://restaurant-app-eh0v.onrender.com).
+
+Please refer to the [DEPLOYMENT.md](DEPLOYMENT.md) file for all deployment-related documentation.
+
 ## Installation
 
 1. **Clone the Repository**:
@@ -447,3 +705,64 @@ We welcome contributions to the Restaurant App! To contribute, please follow the
 
 7. **Open a Pull Request**: Go to the original repository and open a pull request with a description of your changes.
 
+## Credits
+
+We gratefully acknowledge the following resources and services that have contributed to the development and deployment of our restaurant management system:
+
+- **[GitHub](https://github.com/)** for their excellent repository hosting service which facilitated the version control and collaborative development of our project.
+- **[Django](https://www.djangoproject.com/)** for providing a high-level Python web framework that allowed rapid and pragmatic design of our application.
+- **[Render](https://render.com/)** for offering a robust and free hosting service, making the deployment of our website seamless and efficient【4:9†source】.
+- **[ElephantSQL](https://www.elephantsql.com/)** for their reliable free PostgreSQL database hosting, ensuring our database management is both powerful and easy to use【4:9†source】.
+- **[BGJar](https://www.bgjar.com/)** for providing free access to beautiful and customizable SVG background images, enhancing the visual appeal of our website【4:8†source】.
+- **[Font Awesome](https://fontawesome.com/)** for their comprehensive set of vector icons and social logos which have been instrumental in creating an engaging user interface【4:8†source】.
+
+## Additional Acknowledgments
+
+### Framework and Libraries
+
+- **Django Crispy Forms**: The Django Crispy Forms library made handling and customizing forms in Django more intuitive and flexible.
+- **Django Filter**: Simplified the implementation of sophisticated filtration functionalities in our views.
+- **Django Widget Tweaks**: Facilitated the customization and optimization of Django form fields.
+- **Pillow**: Essential for handling image processing capabilities within our application.
+- **Python Decouple**: Enhanced the management of environment configurations, crucial for separating settings from our source code.
+- **PyTZ**: Provided a robust time zone management solution.
+
+### Development Tools
+
+- **Visual Studio Code**: An indispensable tool for coding, offering powerful extensions and integrations that streamlined our development workflow.
+- **Postman**: Played a critical role in API development by allowing us to test our endpoints effectively.
+- **Git**: This version control system was pivotal in facilitating collaborative development across our team.
+- **Docker**: Simplified the creation of containerized environments, ensuring consistency across development, testing, and production stages.
+
+### Hosting and Deployment
+
+- **Heroku**: Provided an alternate platform for quick and easy deployments during development.
+- **Gitpod**: Greatly improved our development efficiency by offering a ready-to-code dev environment directly in the browser.
+
+### Design and UI/UX
+
+- **Bootstrap**: The extensive library of front-end components greatly accelerated the styling and responsive design of our application.
+- **Canva**: Assisted in creating engaging graphical content for both the application and promotional materials.
+
+### Testing and Quality Assurance
+
+- **Selenium**: Enabled automated browser testing, ensuring our web application performed correctly across different browsers.
+- **PyTest**: This testing framework facilitated the creation of simple yet scalable test cases for our application.
+
+## Conclusion
+
+Each of these tools and services played a vital role in bringing our restaurant management system to life. Our heartfelt thanks to all the developers and communities behind these incredible resources❤️. Without their contributions, the development of this project would not have been as efficient and enjoyable.
+
+---
+
+This documentation was generated based on the source code and supporting tools listed. The project is built using the **Django** framework and other tools/libraries that complement it, ensuring a robust and scalable application environment【4:9†source】【4:10†source】.
+
+# Acknowledgments
+
+I would like to express my gratitude to the following individuals for their support and contributions to this project:
+
+- **My Fiancée**: I am deeply thankful to my fiancée for her invaluable insights and patience in helping me better understand certain concepts related to this project. Her support and encouragement have been instrumental in overcoming challenges and making progress.
+
+- **Team Lead**: I appreciate my team lead for granting me the opportunity to take a day off from work to dedicate time to this project. Their understanding and flexibility have enabled me to focus on delivering the best possible outcome.
+
+These acknowledgments would not be complete without mentioning the support of my friends and colleagues who have provided encouragement and feedback throughout this journey.
