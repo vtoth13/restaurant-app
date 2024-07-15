@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to the Restaurant App! This application is designed to streamline restaurant reservations and menu management. It provides a user-friendly interface for customers to book tables and browse the menu, while also offering administrative functionalities for restaurant staff to manage bookings and tables efficiently.
+Welcome to the DineScheduler - Restaurant App! This application is designed to streamline restaurant reservations and menu management. It provides a user-friendly interface for customers to book tables and browse the menu, while also offering administrative functionalities for restaurant staff to manage bookings and tables efficiently.
 
 ## User Stories
 **First-Time Visitor Goals**
@@ -127,6 +127,226 @@ Here is a list of key packages and their versions used in the project:
 #### Notes:
 - **MySQLclient** is listed in `requirements.txt`, indicating potential setup for MySQL if needed in production environments.
 - **Python Decouple**: Used for managing configuration through environment variables, enhancing security and flexibility.
+
+## Table of Contents for Design
+1. [Introduction](#introduction)
+2. [Font](#font)
+3. [Color Scheme](#color-scheme)
+4. [General Styles](#general-styles)
+5. [Responsive Design](#responsive-design)
+6. [Component Styles](#component-styles)
+7. [Custom CSS](#custom-css)
+8. [Theme Management](#theme-management)
+9. [References](#references)
+
+### Introduction
+This document outlines the design components for the restaurant management system, including **font**, **color scheme**, and **general styles**. The goal is to ensure a visually appealing and consistent user interface for the restaurant management system.
+
+### Font
+
+##### Primary Font
+The primary font used across the application is **Arial, sans-serif**. This choice provides clarity, readability, and a modern look that is fitting for a web-based application.
+
+#### Font Styles
+The font styles are defined as follows:
+- **Body Text:** `font-family: Arial, sans-serif`
+- **Font Size:**
+  - Base size: `16px`
+  - Headings: Scaled according to HTML heading tags (`<h1>` to `<h6>`)
+- **Font Weights:**
+  - Regular: `400`
+  - Bold: `700`
+
+#### Usage
+The font styles are utilized throughout the application to ensure consistency:
+```css
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+```
+Source: `3-restaurant-app-d9a4dff/templates/base.html` 
+
+### Color Scheme
+
+#### Primary Colors
+The color scheme includes a set of primary colors to maintain a distinct visual identity:
+- **Primary Color:** `#337ab7` (Bootstrap primary blue)
+- **Secondary Color:** `#23527c`
+- **Background Color:** `#f5f5f5`
+- **Text Color:**
+  - Default: `#333`
+  - Inverse: `#ffffff`
+
+#### Usage
+The color scheme is applied to various UI elements, ensuring that the application is visually striking and cohesive:
+```html
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+    }
+    .nav-bar {
+        background-color: #333333;
+        color: #ffffff;
+        padding: 10px;
+        text-align: center;
+    }
+    .nav-bar a {
+        color: #ffffff;
+    }
+    .nav-bar a:hover {
+        color: #cccccc;
+    }
+</style>
+```
+Source: `3-restaurant-app-d9a4dff/templates/base.html` 
+
+### General Styles
+
+#### Body
+The body tag is styled to provide a consistent user experience:
+```css
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+```
+
+#### Navigation Bar
+The navigation bar is styled to be simple yet effective:
+```css
+.nav-bar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+.nav-bar a {
+    color: #fff;
+    text-decoration: none;
+}
+.nav-bar a:hover {
+    color: #ccc;
+}
+```
+
+### Responsive Design
+The application employs responsive design principles to ensure usability across different devices.
+
+#### Media Queries
+Media queries are used to adapt the interface for various screen sizes:
+```css
+@media (max-width: 768px) {
+    .nav-bar ul {
+        flex-direction: column;
+    }
+    .card {
+        margin-bottom: 20px;
+    }
+}
+```
+
+### Component Styles
+
+#### Buttons
+Buttons follow a consistent style to provide uniform action elements across the platform:
+```css
+button {
+    font-size: 18px;
+    background-color: #337ab7;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #23527c;
+}
+```
+Source: `3-restaurant-app-d9a4dff/templates/signup.html` , `3-restaurant-app-d9a4dff/templates/menu.html` 
+
+#### Forms
+Form elements are designed to be user-friendly and visually consistent:
+```css
+.form-group {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.form-group input[type="submit"] {
+    background-color: #337ab7;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+.form-group input[type="submit"]:hover {
+    background-color: #23527c;
+}
+```
+Source: `3-restaurant-app-d9a4dff/templates/signup.html` 
+
+### Custom CSS
+Custom styles are used to override or complement the default Bootstrap styles as needed to fit the specific design requirements of the application:
+```html
+<style>
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    .card {
+        margin-bottom: 20px;
+    }
+    .card-img-top {
+        height: 150px;
+        object-fit: cover;
+    }
+</style>
+```
+Source: `3-restaurant-app-d9a4dff/templates/base.html` 
+
+### Theme Management
+
+#### Color Scheme Toggle
+The application includes functionality for toggling between light and dark themes:
+```javascript
+'use strict';
+window.addEventListener('load', function(e) {
+    function setTheme(mode) {
+        if (mode !== "light" && mode !== "dark" && mode !== "auto") {
+            console.error(`Got invalid theme mode: ${mode}. Resetting to auto.`);
+            mode = "auto";
+        }
+        document.documentElement.dataset.theme = mode;
+        localStorage.setItem("theme", mode);
+    }
+    function cycleTheme() {
+        // (Implementation of toggling logic)
+    }
+    function initTheme() {
+        const currentTheme = localStorage.getItem("theme");
+        currentTheme ? setTheme(currentTheme) : setTheme("auto");
+    }
+    function setupTheme() {
+        const buttons = document.getElementsByClassName("theme-toggle");
+        Array.from(buttons).forEach(btn => btn.addEventListener("click", cycleTheme));
+        initTheme();
+    }
+    setupTheme();
+});
+```
+Source: `3-restaurant-app-d9a4dff/staticfiles/admin/js/theme.js` 
+
+### References
+- Font Awesome Icons: http://fontawesome.io/ 
+- Bootstrap 4 CDN: https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css 
 
 ## Installation
 
