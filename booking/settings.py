@@ -26,6 +26,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['restaurant-app-eh0v.onrender.com', 'localhost']
 
+CSRF_TRUSTED_ORIGINS = ['restaurant-app-eh0v.onrender.com']
+SECURE_SSL_REDIRECT = True
+
 
 # Application definition
 
