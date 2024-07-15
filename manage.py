@@ -15,8 +15,7 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
 
-    # Get the port from the environment variable
-    if 'runserver' in sys.argv:
+    if len(sys.argv) == 1 or sys.argv[1] == 'runserver':
         port = os.environ.get('PORT', '8000')
         sys.argv.append(f'0.0.0.0:{port}')
 
