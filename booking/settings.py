@@ -76,6 +76,10 @@ TEMPLATES = [
     },
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://restaurant-app-eh0v.onrender.com',
+]
+
 WSGI_APPLICATION = "booking.wsgi.application"
 
 
