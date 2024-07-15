@@ -33,6 +33,8 @@ Welcome to the Restaurant App! This application is designed to streamline restau
 |[#13](https://github.com/vtoth13/restaurant-app/issues/13)|As the restaurant owner, I want my staff to view all bookings, so they can manage reservations and ensure a smooth operation.|
 |[#14](https://github.com/vtoth13/restaurant-app/issues/14)|As the restaurant owner, I want my staff to edit the food and drink menu, so we can update the items offered based on availability and new offerings.|
 |[#15](https://github.com/vtoth13/restaurant-app/issues/15)|As the restaurant owner, I want my staff to add new items to the menu, so we can keep the menu fresh and exciting for customers.|
+|[#16](https://github.com/vtoth13/restaurant-app/issues/16)|As a restaurant owner, I want my staff to be able to make bookings in the past, so that we can accurately record and manage big events and reservations that occurred before the implementation of this system.|
+|[#17](https://github.com/vtoth13/restaurant-app/issues/17)|As a restaurant owner, I want my staff to be able to make bookings for special events outside of regular working hours, so that we can accommodate customer requests for special events at any time of day or night.|
 
 ## Features
 
