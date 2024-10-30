@@ -22,14 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure--9)nm*p#)uiv$y^)axj2_u6xv#dut__4%w%uhe$4^zyia#y!7v"
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['restaurant-app-eh0v.onrender.com']
 
 
 # Security settings
-SECURE_SSL_REDIRECT = True
-SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_SSL_REDIRECT = False
+SECURE_HSTS_SECONDS = 0
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 SESSION_COOKIE_SECURE = True
