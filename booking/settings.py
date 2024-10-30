@@ -27,8 +27,10 @@ DEBUG = False
 ALLOWED_HOSTS = ['restaurant-app-eh0v.onrender.com']
 
 
-SECURE_SSL_REDIRECT = False
-
+SECURE_SSL_REDIRECT = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 # Application definition
