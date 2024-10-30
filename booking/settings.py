@@ -9,6 +9,26 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import logging
+logger = logging.getLogger(_name_)
+
+DEBUG = True
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'level': 'DEBUG',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}
+
 import os
 from pathlib import Path
 
@@ -22,7 +42,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure--9)nm*p#)uiv$y^)axj2_u6xv#dut__4%w%uhe$4^zyia#y!7v"
 
-DEBUG = False
 
 ALLOWED_HOSTS = ['restaurant-app-eh0v.onrender.com']
 
