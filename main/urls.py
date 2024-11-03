@@ -10,5 +10,6 @@ urlpatterns = [
     path('booking/create/', views.booking_create, name='booking_create'),
     path('bookings/', views.booking_list, name='booking_list'),
     path('cancel-booking/<int:booking_id>/', views.cancel_booking, name='cancel_booking'),
+    path('edit_booking/<int:booking_id>/', views.booking_edit, name='edit_booking'), # Edit booking - added from updated zip
     path('check-table-availability/<int:table_id>/<int:number_of_people>/', views.check_table_availability, name='check_table_availability'),
 ]
