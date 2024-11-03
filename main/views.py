@@ -43,6 +43,16 @@ def cancel_booking(request, booking_id):
         return redirect('booking_list')
     return redirect('booking_list')
 
+@login_required
+def booking_edit(request, booking_id):
+    booking = Booking.objects.get(id=booking_id)
+    if request.method == 'POST':
+        booking.booking_time =  request.POST.get("booking_time")
+        booking.number_of_people =request.POST.get("number_of_people")
+        booking.special_requests = request.POST.get("special_requests")
+        booking.save()
+    return redirect('booking_list')
+
 def check_table_availability(request, table_id, number_of_people):
     table = Table.objects.get(id=table_id)
     if table.seats >= int(number_of_people):
