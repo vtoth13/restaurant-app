@@ -24,7 +24,7 @@ SECRET_KEY = "django-insecure--9)nm*p#)uiv$y^)axj2_u6xv#dut__4%w%uhe$4^zyia#y!7v
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['restaurant-app-eh0v.onrender.com', '127.0.0.1']
+ALLOWED_HOSTS = ['restaurant-app-eh0v.onrender.com']
 
 
 
@@ -126,7 +126,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'https://restaurant-app-eh0v.onrender.com/static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
