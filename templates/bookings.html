@@ -21,6 +21,42 @@
                         <td>{{ booking.number_of_people }}</td>
                         <td>{{ booking.special_requests }}</td>
                         <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal-{{ booking.id }}">Edit</button>
+                            <div class="modal fade" id="edit-modal-{{ booking.id }}" tabindex="-1" role="dialog" aria-labelledby="edit-modal-label" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="edit-modal-label">Edit Booking</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="{% url 'edit_booking' booking.id %}" method="post">
+                                                {% csrf_token %}
+                                                <div class="form-group">
+                                                    <label for="table_number">Table Number:</label>
+                                                    <input type="text" class="form-control" id="table_number" name="table_number" value="{{ booking.table.table_number }}" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="booking_time">Booking Time:</label>
+                                                    <input required type="datetime-local" class="form-control" id="booking_time" name="booking_time" value="{{ booking.booking_time }}">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="number_of_people">Number of Guests:</label>
+                                                    <input required min="1" type="number" class="form-control" id="number_of_people" name="number_of_people" value="{{ booking.number_of_people }}">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="special_requests">Special Requests:</label>
+                                                    <textarea class="form-control" id="special_requests" name="special_requests">{{ booking.special_requests }}</textarea>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Update Booking</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#cancel-modal-{{ booking.id }}">Cancel</button>
                             <div class="modal fade" id="cancel-modal-{{ booking.id }}" tabindex="-1" role="dialog" aria-labelledby="cancel-modal-label" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
