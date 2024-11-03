@@ -35,13 +35,12 @@ def booking_list(request):
     return render(request, 'bookings.html', {'bookings': bookings})
 
 @login_required
-def booking_edit(request, booking_id):
+def cancel_booking(request, booking_id):
     booking = Booking.objects.get(id=booking_id)
     if request.method == 'POST':
-        booking.booking_time =  request.POST.get("booking_time")
-        booking.number_of_people =request.POST.get("number_of_people")
-        booking.special_requests = request.POST.get("special_requests")
-        booking.save()
+        Table.objects.filter(id=booking.table.id).update(available=True)
+        booking.delete()
+        return redirect('booking_list')
     return redirect('booking_list')
 
 def check_table_availability(request, table_id, number_of_people):
