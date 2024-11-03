@@ -27,7 +27,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['restaurant-app-eh0v.onrender.com']
 
 
-SECURE_SSL_REDIRECT = False
+
 
 
 
