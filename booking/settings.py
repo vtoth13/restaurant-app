@@ -29,6 +29,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://restaurant-app-eh0v.onrender.com',
 ]
 
+SESSION_COOKIE_AGE = 604800
 
 
 
