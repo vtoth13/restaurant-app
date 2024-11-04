@@ -51,3 +51,29 @@
 | Responsiveness   | Open each page on mobile                         | Layout adapts for smaller screens, all elements are accessible and readable                     | Y   | Verified across all pages      |
 |                  | Verify functionality of interactive elements     | Buttons, dropdowns, and input fields are fully functional on mobile                             | Y   |                                |
 |                  | Check "Menu" and "Tables" page on tablet         | Layout remains accessible and formatted for tablet screen size                                  | Y   |                                |
+
+# User Stories Testing Table
+
+| User Goals                          | Requirement Met                                                      | Image                 |
+|-------------------------------------|----------------------------------------------------------------------|-----------------------|
+| **First-Time Visitor Goals**        |                                                                      |                       |
+| #1 - Clear and inviting homepage    | Homepage displays welcoming text, restaurant details, and clear navigation options | ![Homepage](documentation/media/homepage.png) |
+| #2 - View table information         | "Tables" page shows seating capacity for each table                 | ![Tables Page](documentation/media/tables.png) |
+| #3 - Browse food and drink menu     | "Menu" page lists food and drinks with descriptions, prices, and images | ![Menu Page](documentation/media/menu.png) |
+| #4 - Create an account              | "Sign Up" page is accessible with form fields for new user registration | ![Sign Up Page](documentation/media/signup.png) |
+| #5 - Make a new booking             | "Create Booking" page allows date, time, table selection for reservations | ![Booking Page](documentation/media/create-booking.png) |
+| **Frequent User Goals**             |                                                                      |                       |
+| #6 - Quick login access             | "Login" page available, login fields, and "Forgot Password?" option | ![Login Page](documentation/media/login.png) |
+| #7 - View existing bookings         | "My Bookings" page displays list of reservations with edit/cancel options | ![My Bookings](documentation/media/edit-booking.png) |
+| #8 - Easily create a new booking    | "Create Booking" page available for new reservation                 | ![Booking Page](documentation/media/create-booking.png) |
+| #9 - Browse menu regularly          | "Menu" page displays current food and drink items                   | ![Menu Page](documentation/media/menu.png) |
+| **Restaurant Owner Goals**          |                                                                      |                       |
+| #10 - Staff login access            | Separate staff login option available                               | ![Staff Login](documentation/media/staff-login.png) |
+| #11 - View all tables               | Staff access to "Tables" page showing all table capacities          | ![Tables Page](documentation/media/admin-tables.png) |
+| #12 - Create/edit tables            | Staff can access options to create and modify tables                | ![Tables Management](documentation/media/edit-tables.png) |
+| #13 - View all bookings             | Staff access to "Bookings" page listing all reservations            | ![Bookings Management](documentation/media/edit-booking.png) |
+| #14 - Edit food and drink menu      | Staff has options to edit items on "Menu" page                      | ![Menu Management](documentation/media/menu-list.png) |
+| #15 - Add new menu items            | Staff can add new items on "Menu" page                              | ![Menu Management](documentation/media/add-menu-item.png) |
+| #16 - Bookings in the past          | Staff able to create past bookings to record historical reservations | ![Past Booking](documentation/media/booking-past.png) |
+| #17 - Special event bookings        | Staff can create bookings for special events outside regular hours  | ![Special Event Booking](documentation/media/booking-workinghours.png) |
+
