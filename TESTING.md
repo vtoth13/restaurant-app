@@ -103,3 +103,27 @@ Each bug and subsequent fix has contributed to my development skills, allowing m
 
 - No errors were found. According to the reports, the code is [Pep 8-compliant](https://legacy.python.org/dev/peps/pep-0008/). This checking was done manually by copying python code and pasting it into the validator.
 
+## Lighthouse Reports
+
+### Home Page
+![Home Page](documentation/lighthouse%20report/homepage-lighthouse.png)
+
+### Tables Page
+
+![Tables Page](documentation/lighthouse%20report/tables-lighthouse.png)
+
+### Menu Page
+![Menu Page](documentation/lighthouse%20report/menu-lighthouse.png)
+
+### Signup Page
+![Signup Page](documentation/lighthouse%20report/signup-lighthouse.png)
+
+### Login Page
+![Login Page](documentation/lighthouse%20report/login-lighthouse.png)
+
+### Create Booking Page
+![Create Booking Page](documentation/lighthouse%20report/create-booking-lighthouse.png)
+
+### My Bookings Page
+![My Bookings Page](documentation/lighthouse%20report/my-bookings-lighthouse.png)
+
