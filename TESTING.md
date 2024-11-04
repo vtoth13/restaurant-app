@@ -85,3 +85,21 @@ Through persistent testing and analysis, I was able to trace the root cause of t
 
 Each bug and subsequent fix has contributed to my development skills, allowing me to anticipate potential issues in future projects and manage configurations more effectively.
 
+## Validation
+
+### [HTML Validation](documentation/validation/html-validation.png)
+
+- No errors or warnings were found when passing through the official [W3C](https://validator.w3.org/) validator. This checking was done manually by copying the view page source code (Ctrl+U) and pasting it into the validator.
+
+### [CSS Validation](documentation/validation/css-validation.png) 
+
+- No errors or warnings were found when passing through the official [W3C (Jigsaw)](https://jigsaw.w3.org/css-validator/#validate_by_uri) validator except for the warnings about the use of css root variables and webkits for the box-shadow. However, css code works perfectly on various devices.
+
+### JS Validation
+
+- No errors or warning messages were found when passing through the official [JSHint](https://www.jshint.com/) validator. 
+
+### Python Validation
+
+- No errors were found. According to the reports, the code is [Pep 8-compliant](https://legacy.python.org/dev/peps/pep-0008/). This checking was done manually by copying python code and pasting it into the validator.
+
