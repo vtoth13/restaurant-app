@@ -77,3 +77,11 @@
 | #16 - Bookings in the past          | Staff able to create past bookings to record historical reservations | ![Past Booking](documentation/media/booking-past.png) |
 | #17 - Special event bookings        | Staff can create bookings for special events outside regular hours  | ![Special Event Booking](documentation/media/booking-workinghours.png) |
 
+## Solved Bugs
+
+ During development, I encountered various bugs that provided valuable learning experiences, helping me to grow and improve as a developer. One significant challenge was an issue where everything appeared to work fine in Debug mode, but disabling it led to access issues with the Admin Panel. This bug was particularly challenging to identify, as the debug mode masked the underlying issue, making it hard to troubleshoot.
+
+Through persistent testing and analysis, I was able to trace the root cause of the problem and implement a solution, restoring full access to the Admin Panel when debug mode was off. Resolving this bug improved my understanding of production configurations and how certain issues might only surface outside the debug environment, reinforcing the importance of testing in real-world scenarios.
+
+Each bug and subsequent fix has contributed to my development skills, allowing me to anticipate potential issues in future projects and manage configurations more effectively.
+
