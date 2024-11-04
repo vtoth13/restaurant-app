@@ -1,165 +1,53 @@
 # Testing
 
----
+## Manuel Testing
 
-## Overview
-
-This document provides detailed insights into the **Testing** aspect of the Restaurant Application built using the **Django Framework**. It includes information on setting up and running various tests, best practices, and the different types of tests implemented for ensuring the application works as expected.
-
----
-
-## Table of Contents
-
-1. [Environment Setup](#environment-setup)
-2. [Running Tests](#running-tests)
-3. [Writing Tests](#writing-tests)
-    - [Unit Tests](#unit-tests)
-    - [Integration Tests](#integration-tests)
-    - [Functional Tests](#functional-tests)
-4. [Test Coverage](#test-coverage)
-5. [Best Practices](#best-practices)
-
----
-
-## Environment Setup
-
-Before running the tests, ensure your environment is properly set up. The following packages are required:
-
-### Dependencies for Testing:
-
-```plaintext
-Django==4.2.13
-django-crispy-forms==1.11.2
-django-filter==2.4.0
-django-widget-tweaks==1.4.8
-mysqlclient==2.0.3
-Pillow==8.3.1
-python-decouple==3.4
-pytz==2021.3
-sqlparse==0.4.2
-```
-
-Install these dependencies using `pip`:
-
-```sh
-pip install -r requirements.txt
-```
-
-## Running Tests
-
-To run the tests, use Django’s built-in test management command. Simply navigate to your project’s main directory and execute:
-
-```sh
-python manage.py test
-```
-
-Tests will be executed, and the results will be displayed in the terminal.
-
-## Writing Tests
-
-### Unit Tests
-
-*Unit Tests* are the simplest and fastest types of tests. They focus on the smallest pieces of code, like individual functions or methods, ensuring they work correctly in isolation.
-
-**Location:**
-- Unit tests for models and views can be found in `main/tests.py`.
-
-**Example:**
-
-```python
-from django.test import TestCase
-from django.contrib.auth.models import User
-from main.models import Table, Booking
-
-class TableModelTestCase(TestCase):
-    def setUp(self):
-        self.table = Table.objects.create(table_number=1, seats=4, available=True)
-
-    def test_table_creation(self):
-        self.assertEqual(self.table.table_number, 1)
-        self.assertEqual(self.table.seats, 4)
-        self.assertTrue(self.table.available)
-```
-
-### Integration Tests
-
-*Integration Tests* check the interaction between multiple components such as views, forms, and models together to ensure they work cohesively.
-
-**Example:**
-
-```python
-from django.test import TestCase, Client
-from django.urls import reverse
-from django.contrib.auth.models import User
-from main.models import Table, Booking
-
-class BookingIntegrationTestCase(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.user = User.objects.create_user(username='testuser', password='12345')
-        self.table = Table.objects.create(table_number=1, seats=4)
-
-    def test_booking_create_view(self):
-        self.client.login(username='testuser', password='12345')
-        response = self.client.post(reverse('booking_create'), {
-            'table': self.table.id,
-            'booking_time': '2024-06-27T12:00',
-            'number_of_people': 4
-        })
-        self.assertEqual(response.status_code, 302)  # Redirects after booking creation
-        self.assertTrue(Booking.objects.filter(user=self.user).exists())
-```
-
-### Functional Tests
-
-*Functional Tests* ensure the complete functionality of the application, typically involving more complex interactions that simulate the real-world use case.
-
-**Example**:
-
-```python
-from django.test import TestCase, Client
-
-class UserSignupTest(TestCase):
-    def setUp(self):
-        self.client = Client()
-
-    def test_user_signup(self):
-        response = self.client.post('/accounts/signup/', {
-            'username': 'newuser',
-            'password1': 'complexpassword',
-            'password2': 'complexpassword'
-        })
-        self.assertEqual(response.status_code, 302)
-        self.assertTrue(User.objects.filter(username='newuser').exists())
-```
-
-## Test Coverage
-
-To ensure that the tests cover all parts of your code base, it’s crucial to use tools like `coverage.py`.
-
-### Steps to Run Coverage:
-
-1. **Install Coverage**:
-    ```sh
-    pip install coverage
-    ```
-
-2. **Run Tests with Coverage**:
-    ```sh
-    coverage run --source='.' manage.py test
-    ```
-
-3. **Generate Coverage Report**:
-    ```sh
-    coverage report -m
-    ```
-
-This will display a coverage report and highlight the parts of the code that are not covered by tests.
-
-## Best Practices
-
-1. **Isolate Tests**: Each test should be independent and should not rely on the state of another test.
-2. **Use Fixtures**: Use Django’s fixtures or `setUp` method to create test data instead of modifying the database directly in tests.
-3. **Clean Up**: Ensure each test cleans up after itself by removing any test data created.
-4. **Descriptive Names**: Name your test methods and classes descriptively to reflect what they're testing.
-5. **Continuous Integration**: Integrate testing into the CI/CD pipeline to ensure that all tests are run on every commit.
+| Page             | User Actions                                     | Expected Results                                                                                 | Y/N | Comments                       |
+|------------------|--------------------------------------------------|--------------------------------------------------------------------------------------------------|-----|---------------------------------|
+| Home Page        | Open the home page                               | Page loads with clear options: "Book a Table," "View Menu," "Contact Info," and "Opening Hours."| Y   |                                |
+|                  | Click on "Book a Table"                          | Redirects to the booking page                                                                   | Y   |                                |
+|                  | Click on "View Menu"                             | Redirects to menu page with all items displayed                                                 | Y   |                                |
+|                  | Check if "Opening Hours" section is visible      | Displays accurate opening hours                                                                | Y   |                                |
+|                  | Verify "Contact Information" section             | Contact phone number and address are visible and accurate                                       | Y   |                                |
+| Tables Page      | Open the "Tables" page                           | Loads with a list of tables showing number, capacity, and current availability status           | Y   |                                |
+|                  | Verify table availability status                 | Displays correct status (Available/Occupied)                                                    | Y   |                                |
+|                  | Click on an available table                      | Prompts user to log in if not authenticated                                                     | Y   |                                |
+|                  | Attempt to view details on an occupied table     | Shows status as "Occupied" without option to book                                               | Y   |                                |
+|                  | Verify display of restaurant opening hours       | Hours of operation are clearly displayed                                                       | Y   |                                |
+|                  | Check for contact details on page                | Displays restaurant contact number and address                                                  | Y   |                                |
+| Booking Process  | Select date and time for booking                 | Date and time selection available within restaurant operating hours                             | Y   |                                |
+|                  | Attempt booking without selecting date/time      | Displays error message requiring date and time selection                                        | Y   |                                |
+|                  | Confirm booking with valid date/time selection   | Shows booking confirmation message and booking summary                                          | Y   |                                |
+| Menu Page        | Open "Menu" page                                 | Loads with a list of food and drink items, each with name, description, price, and image        | Y   |                                |
+|                  | Click on menu item                               | Expands item details, showing additional description if available                               | Y   |                                |
+|                  | Verify images load correctly for each item       | Each item has a properly loaded image                                                           | Y   |                                |
+|                  | Verify all prices and descriptions are visible   | All items display names, descriptions, and prices                                               | Y   |                                |
+| Sign Up Page     | Open "Sign Up" page                              | Displays fields for username, email, password, and password confirmation                        | Y   |                                |
+|                  | Enter valid username                             | Field accepts up to 150 characters                                                             | Y   |                                |
+|                  | Enter username with special characters           | Rejects input, displays error for invalid characters                                           | Y   |                                |
+|                  | Enter valid email                                | Accepts input only in valid email format                                                        | Y   |                                |
+|                  | Enter invalid email format                       | Displays error message for incorrect email format                                               | Y   |                                |
+|                  | Enter valid password                             | Accepts secure password within criteria (8+ chars, alphanumeric, etc.)                          | Y   |                                |
+|                  | Enter weak or short password                     | Displays error for insufficient password security                                               | Y   |                                |
+|                  | Confirm password with mismatched entry           | Shows error indicating passwords must match                                                     | Y   |                                |
+|                  | Click "Sign Up" with valid inputs                | Redirects to account confirmation page or welcome screen                                        | Y   |                                |
+|                  | Click "Sign Up" with incomplete form             | Shows field-specific error messages                                                             | Y   |                                |
+| Create Booking   | Open "Create Booking" page                       | Redirects to login page if not authenticated                                                    | Y   |                                |
+|                  | Log in as authenticated user                     | Accesses the booking form page directly after login                                             | Y   |                                |
+|                  | Select table from dropdown                       | Dropdown shows only available tables within selected time                                       | Y   |                                |
+|                  | Enter guest count                                | Field validates input to stay within table capacity                                             | Y   |                                |
+|                  | Click "Confirm Booking"                          | Success message shown; booking details saved to user account                                    | Y   |                                |
+|                  | Attempt double-booking at same time              | Error displayed if table is unavailable at selected time                                        | Y   |                                |
+| My Bookings      | Open "My Bookings" page                          | Redirects to login page if not authenticated                                                    | Y   |                                |
+|                  | View list of bookings                            | All current bookings display with date, time, table, and guest count                            | Y   |                                |
+|                  | Click "Edit" on a booking                        | Redirects to pre-filled edit form                                                               | Y   |                                |
+|                  | Make and save changes to booking                 | Success message displayed; updated booking details shown                                        | Y   |                                |
+|                  | Click "Cancel" on a booking                      | Prompts confirmation; removes booking upon confirmation                                         | Y   |                                |
+|                  | Attempt to edit or cancel past booking           | Error or restriction prevents modifying past bookings                                           | Y   |                                |
+| Login Page       | Open "Login" page                                | Page loads with fields for email/username and password                                         | Y   |                                |
+|                  | Enter valid email and password                   | Redirects to user dashboard on successful login                                                 | Y   |                                |
+|                  | Enter incorrect email/password                   | Displays error message for incorrect credentials                                                | Y   |                                |
+|                  | Leave fields empty and attempt login             | Error message prompts user to fill required fields                                              | Y   |                                |
+| Responsiveness   | Open each page on mobile                         | Layout adapts for smaller screens, all elements are accessible and readable                     | Y   | Verified across all pages      |
+|                  | Verify functionality of interactive elements     | Buttons, dropdowns, and input fields are fully functional on mobile                             | Y   |                                |
+|                  | Check "Menu" and "Tables" page on tablet         | Layout remains accessible and formatted for tablet screen size                                  | Y   |                                |
