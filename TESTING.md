@@ -132,3 +132,22 @@ Each bug and subsequent fix has contributed to my development skills, allowing m
 The compatibility was tested via [PowerMapper](https://www.powermapper.com).
 
 ![Compatibility Test](documentation/compatibility/compatibility.png)
+
+## Responsiveness
+
+The responsiveness was checked manually by using devtools (Chrome) throughout the whole development. It was also checked with [Responsive Viewer](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb/related?hl=en) Chrome extension.
+
+### Home Page
+![Home Page](documentation/responsive/homepage-responsive.png)
+
+### Tables Page
+![Tables Page](documentation/responsive/tables-responsive.png)
+
+### Menu Page
+![Menu Page](documentation/responsive/menu-responsive.png)
+
+### Sign Up Page
+![Sign Up Page](documentation/responsive/signin-responsive.png)
+
+### Login Page
+![Login Page](documentation/responsive/login-responsive.png)
