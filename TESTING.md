@@ -71,7 +71,7 @@
 | #10 - Staff login access            | Separate staff login option available                               | ![Staff Login](documentation/media/staff-login.png) |
 | #11 - View all tables               | Staff access to "Tables" page showing all table capacities          | ![Tables Page](documentation/media/admin-tables.png) |
 | #12 - Create/edit tables            | Staff can access options to create and modify tables                | ![Tables Management](documentation/media/edit-tables.png) |
-| #13 - View all bookings             | Staff access to "Bookings" page listing all reservations            | ![Bookings Management](documentation/media/edit-booking.png) |
+| #13 - View all bookings             | Staff access to "Bookings" page listing all reservations            | ![Bookings Management](documentation/media/staff-bookings.png) |
 | #14 - Edit food and drink menu      | Staff has options to edit items on "Menu" page                      | ![Menu Management](documentation/media/menu-list.png) |
 | #15 - Add new menu items            | Staff can add new items on "Menu" page                              | ![Menu Management](documentation/media/add-menu-item.png) |
 | #16 - Bookings in the past          | Staff able to create past bookings to record historical reservations | ![Past Booking](documentation/media/booking-past.png) |
