@@ -127,3 +127,8 @@ Each bug and subsequent fix has contributed to my development skills, allowing m
 ### My Bookings Page
 ![My Bookings Page](documentation/lighthouse%20report/my-bookings-lighthouse.png)
 
+## Compatibility Testing
+
+The compatibility was tested via [PowerMapper](https://www.powermapper.com).
+
+![Compatibility Test](documentation/compatibility/compatibility.png)
