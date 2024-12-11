@@ -597,6 +597,29 @@ Static resources like CSS, JavaScript, and images are stored in the `staticfiles
 
 Please refer to the [TESTING.md](TESTING.md) file for all test-related documentation.
 
+### Fix: Securing the `SECRET_KEY` with `python-decouple`
+
+Initially, the `SECRET_KEY` was stored in the `settings.py` file, which posed a security risk as this file could be checked into version control systems like Git. To mitigate this risk and manage the `SECRET_KEY` securely, I removed it from `settings.py` and used the `python-decouple` package along with environment variables.
+
+#### Solution
+
+I followed the secure approach recommended, which involves specifying the key-value pair in the **Environment Variables** section (e.g., in the Render.com Environment Variables panel).
+
+##### Steps Taken
+
+1. The `SECRET_KEY` was removed from the `settings.py` file.
+2. In **Render.com**, the `SECRET_KEY` was added as an environment variable.
+3. The `python-decouple` package was used to read the `SECRET_KEY` from the environment variable, making it easier to manage and secure sensitive data.
+
+##### Code Example
+
+In the `settings.py`, I added the following to use `python-decouple`:
+```python
+from decouple import config
+
+SECRET_KEY = config('SECRET_KEY')
+```
+
 ## Deployment
 
 
